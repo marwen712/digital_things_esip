@@ -1,0 +1,40 @@
+<br>
+<h3 style="text-align: center;">All products</h3>
+<br>
+<div class="row">
+  <div class="search-hero">
+    <input class="form-control me-2" type="text" name="search" [(ngModel)]="searchText" placeholder="Search ........ ">
+  </div>
+</div>
+<br><br>
+<div class="container">
+<div class="body">
+  <div class="row">
+
+    <div class="col" *ngFor="let item of dataSource | filter : searchText; index as i ">
+            
+      <div class="card" style="width: 18rem;">
+          <img [src]="item.image" class="card-img-top" width=400px height=400px alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{item.title}}</h5>
+            <p class="card-text">{{item.description}}</p>
+            <div class="row gx-2">
+              <div class="col">
+            <a class="btn btn-primary" (click)="detail(item.id)">Details</a>
+          </div>
+          <div class="col">
+            <button class="btn btn-primary" (click)="addToCart(i)" *ngIf="add !== i">Add to Cart</button>&nbsp;
+          </div>
+            <br>
+            <div *ngIf="add === i" class="col" >
+            <input type="number" class="form-control3" placeholder="amount" #amount>
+            <button class="btn btn-primary" (click)="buy(amount.value)">Buy</button>&nbsp;
+            </div>
+          </div>
+          </div>
+        </div>              
+
+</div>
+  </div>
+</div>
+  </div>

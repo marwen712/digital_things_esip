@@ -1,0 +1,42 @@
+
+    <section>
+        <div class=" imgBx">
+            <img src="assets/images/login.jpg">
+        </div>
+        <div class="contentBx">
+            <div class="formBx">
+                <h2>Login</h2>
+                <form #f="ngForm" (ngSubmit)="login(f)" >
+                    <div class="inputBx">
+                        <span>Email</span>
+                        <input type="text"name="email" #email="ngModel" ngModel required>
+                        <div class="alert alert-danger" *ngIf="email.errors?.['required']&& email.touched">
+                          this input is required
+                        </div>
+                    </div>
+                    <div class="inputBx">
+                        <span>Password</span>
+                        <input type="password" name="password"  #password="ngModel"ngModel required>
+                        <div class="alert alert-danger" *ngIf="password.errors?.['required']&& password.touched">
+                          this input is required
+                      </div>
+                    </div>
+                    <div class="remember">
+                      <label >
+                          <input type="checkbox" name="">Remember me
+                      </label>  
+                    </div>
+                    <div class="inputBx">
+                        <input type="submit" value="Login">
+                        <div class="alert alert-danger" *ngIf="messageError">
+                            {{messageError}}
+                        </div>
+                    </div>
+                    <div class="inputBx">
+                    <p>don't have an account ? <a routerLink="/register">Sign Up</a> </p>
+                    </div>    
+                    
+                </form>
+            </div>
+        </div>
+    </section>

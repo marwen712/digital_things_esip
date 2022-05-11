@@ -1,0 +1,63 @@
+<section>
+    <div class=" imgBx">
+        <img src="assets/images/signup.jpg">
+    </div>
+    <div class="contentBx">
+        <div class="formBx" >
+            <h2>Sign Up</h2>
+            <form >
+              <form #f="ngForm" (ngSubmit)="register(f)">
+                <div class="inputBx"   >
+                    <input   type="text" placeholder="Full Name" name="fullName" #fullName="ngModel" ngModel required>
+                    <div class="alert alert-danger" *ngIf="fullName.errors?.['required']&& fullName.touched">
+                      this input is required
+                    </div>
+                </div>
+                <div class="inputBx">
+                  <input type="text"  placeholder="Adress" name="adress" #adress="ngModel" ngModel required>
+                  <div class="alert alert-danger" *ngIf="adress.errors?.['required']&& adress.touched">
+                      this input is required
+                  </div>
+              </div>
+              <div class="inputBx">
+                <input type="email"  placeholder="Email" name="email"  #email="ngModel"ngModel required>
+                <div class="alert alert-danger" *ngIf="email.errors?.['required']&& email.touched">
+                  this input is required
+              </div>
+            </div>
+            <div class="inputBx">
+              <input type="number" uk-icon="" name="phone" placeholder="phone number" #phone="ngModel"ngModel required>
+              <div class="alert alert-danger" *ngIf="phone.errors?.['required']&& phone.touched">
+                  this input is required
+              </div>
+              </div> 
+              
+                <div class="inputBx">
+                    <input type="password"  placeholder="password" name="password"  #password="ngModel"ngModel required minlength="8">
+                    <div class="alert alert-danger" *ngIf="password.errors?.['required']&& password.touched">
+                      this input is required
+                  </div>
+                  <div class="alert alert-danger" *ngIf="password.errors?.['minlength'] && password.touched">
+                    this input password should +8 caratere
+                </div>
+                </div>
+              <div class="inputBx">
+                <input type="password"  placeholder="confirm password" name="confirmpassword"  #confirmpassword="ngModel"ngModel required>
+                <div class="alert alert-danger" *ngIf="confirmpassword.errors?.['required']&& confirmpassword.touched">
+                  this input confirm password is required</div>
+              <div class="alert alert-danger" *ngIf="password.value!==confirmpassword.value && confirmpassword.touched" >
+              not equal
+             </div>
+            </div>
+                <div class="inputBx">
+                    <input type="submit" [disabled]="f.invalid" value="Sign In">
+                </div>   
+                <div class="inputBx">
+                  <p>Already registered? <a routerLink="/login"> Login !! </a> </p>
+                  </div> 
+                </form>
+              </form>
+        </div>
+    </div>
+</section>
+

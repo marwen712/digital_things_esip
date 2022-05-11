@@ -1,0 +1,95 @@
+<br>
+<br>
+<div class="container">
+<article class="uk-comment">
+    <header class="uk-comment-header">
+        <div class="uk-grid-medium uk-flex-middle" uk-grid>
+            <div class="uk-width-auto">
+                <img class="uk-comment-avatar" [src]="dataProfile.image" width="200" height="200" alt="">
+            </div>
+            <div class="uk-width-expand">
+                <h4 class="uk-comment-title uk-margin-remove">{{dataProfile.fullName}}</h4>
+                <br>
+                <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal">Update Profil</button><br><br>
+                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal2">Update Image</button>
+            </div>
+        </div>
+    </header>
+    <div class="uk-comment-body">
+        <p> address : {{dataProfile.adress}}</p>
+        <p>Email : {{dataProfile.email}}</p>
+        <p>Phone Number : {{dataProfile.phone}}</p>
+        <p>Password : {{dataProfile.password}}</p>
+    </div>
+</article>
+</div>
+
+
+  <!-- Modal profile -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Update profile</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form >
+            <div>
+              <span>fullName : </span>
+             <input type="text" class="form-control" name="fullName" [(ngModel)]="dataProfile.fullName"> <br>
+            </div>
+            <div>
+              <span>address : </span>
+             <input type="text" class="form-control" name="address" [(ngModel)]="dataProfile.adress"><br></div>
+             <div>
+              <span>email : </span>
+             <input type="text" class="form-control" name="email" [(ngModel)]="dataProfile.email"><br>
+            </div>
+            <div>
+              <span>phone : </span>
+             <input type="text" class="form-control" name="phone" [(ngModel)]="dataProfile.phone"><br>
+            </div>
+            <div>
+              <span>password : </span>
+             <input type="text" class="form-control" name="password" [(ngModel)]="dataProfile.password"><br>
+            </div>
+             <button class="btn btn-success" (click)="update()" >Update Now !</button>
+             <br>
+             <br>
+             <div class="alert alert-success" *ngIf="successUpdate">{{successUpdate}}</div>
+          </form>
+        </div>
+        <div class="modal-footer">
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal Image -->
+  <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel2">Update Image</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form >
+            <input type="file" accept=".jpg,.png"  (change)="uploadImage($event)">
+            <br>
+            <div *ngIf="percountage | async as pct">
+              <br>
+            
+            <progress id="js-progressbar" class="uk-progress" [value]="pct" max="100"></progress>
+            <div *ngIf="pct == 100" class="alert alert-success"> Upload successfully !</div>
+		    </div> 
+          </form>
+        </div>
+        <div class="modal-footer">
+
+        </div>
+      </div>
+    </div>
+  </div>
+

@@ -1,0 +1,16 @@
+.content a {
+    text-decoration: none;
+    background-color: #fff;
+    color: var(--primary-color);
+    padding: 20px 20px;
+    border-radius: 5px;
+}
+.viewMoreBtn {
+    text-decoration: none;
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 10px 10px;
+    border-radius: 5px;
+    font-size: 18px;
+
+}

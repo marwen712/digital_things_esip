@@ -1,0 +1,40 @@
+<div class="container">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="">Digital_Things</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}">Home</a>
+          </li>
+          <li class="nav-item" *ngIf="!isUser">
+            <a class="nav-link" routerLink="login" routerLinkActive="active-link">Login</a>
+          </li>
+          <li class="nav-item" *ngIf="!isUser">
+            <a class="nav-link" routerLink="register" routerLinkActive="active-link">Register</a>
+          </li>
+          <li class="nav-item" *ngIf="isUser">
+            <a class="nav-link" routerLink="profil" routerLinkActive="active-link">Profil</a>
+          </li>
+          <li class="nav-item" *ngIf="isUser">
+            <a class="nav-link" routerLink="products" routerLinkActive="active-link">Products</a>
+          </li>
+          <li class="nav-item" *ngIf="isUser">
+            <a class="nav-link" routerLink="myproducts" routerLinkActive="active-link">My_Products</a>
+          </li>
+            <li>
+              <i class="bi bi-cart"></i>
+            </li>
+            
+          
+        </ul>
+        <div class="nav-item" *ngIf="isUser">
+        <a class="btn btn-danger" (click)="logout()">Logout</a>
+      </div>
+      </div>
+    </div>
+  </nav>
+</div>
